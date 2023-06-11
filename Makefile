@@ -1,8 +1,4 @@
-ifeq ($(shell uname), Darwin)
-SOEXT := dylib
-else
-SOEXT := so
-endif
+SOEXT := $(shell ruby -e 'puts RbConfig::CONFIG["SOEXT"]')
 
 OPTFLAGS :=
 CFLAGS :=
