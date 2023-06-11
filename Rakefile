@@ -15,7 +15,7 @@ task compile_no_debug: :make_no_debug
 Rake::ExtensionTask.new(:compile) do |ext|
   ext.name = "yarp"
   ext.ext_dir = "ext/yarp"
-  ext.lib_dir = "lib"
+  ext.lib_dir = "lib/yarp"
   ext.gem_spec = Gem::Specification.load("yarp.gemspec")
 end
 
@@ -58,7 +58,7 @@ end
 CLOBBER.concat(TEMPLATES)
 
 CLOBBER << "build/librubyparser.#{RbConfig::CONFIG["SOEXT"]}"
-CLOBBER << "lib/yarp.#{RbConfig::CONFIG["DLEXT"]}"
+CLOBBER << "lib/yarp/yarp.#{RbConfig::CONFIG["DLEXT"]}"
 
 TEMPLATES.each do |filepath|
   desc "Template #{filepath}"
