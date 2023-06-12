@@ -29,8 +29,11 @@ jobs:
         mingw: libxml2 libxslt
     - name: Lint config.yml
       run: bundle exec rake lint
+    - name: Build extension
+      run: bundle exec rake compile
+      shell: bash
     - name: Run Ruby tests
-      run: bundle exec rake
+      run: bundle exec rake test
       shell: bash
 
   build-without-assertions:

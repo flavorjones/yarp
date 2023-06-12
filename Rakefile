@@ -25,10 +25,10 @@ test_config = lambda do |t|
   t.test_files = FileList["test/**/*_test.rb"]
 end
 
-Rake::TestTask.new(test: :compile, &test_config)
+Rake::TestTask.new(:test, &test_config)
 
 namespace :test do
-  RubyMemcheck::TestTask.new(valgrind: :compile, &test_config)
+  RubyMemcheck::TestTask.new(:valgrind, &test_config)
 end
 
 task default: :test
