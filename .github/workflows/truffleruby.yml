@@ -29,8 +29,9 @@ jobs:
     - name: Clone TruffleRuby
       uses: actions/checkout@v3
       with:
-        repository: oracle/truffleruby
+        repository: flavorjones/truffleruby
         path: truffleruby-ws/truffleruby
+        ref: flavorjones-fix-yarp-import
     - name: Setup jt
       run: echo "$PWD/truffleruby-ws/truffleruby/bin" >> $GITHUB_PATH
 
