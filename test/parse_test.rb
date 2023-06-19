@@ -57,6 +57,11 @@ class ParseTest < Test::Unit::TestCase
     FileUtils.mkdir_p(directory) unless File.directory?(directory)
 
     define_method "test_filepath_#{filepath}" do
+      if (filepath =~ /heredoc_with_extra_carriage_returns\.txt/)
+        $stderr.puts "MIKE: #{__FILE__}:#{__LINE__}: File.read: #{File.read(filepath).inspect}"
+        $stderr.puts "MIKE: #{__FILE__}:#{__LINE__}: File.binread: #{File.binread(filepath).inspect}"
+      end
+
       # First, read the source from the filepath and make sure that it can be
       # correctly parsed by Ripper. If it can't, then we have a fixture that is
       # invalid Ruby.
